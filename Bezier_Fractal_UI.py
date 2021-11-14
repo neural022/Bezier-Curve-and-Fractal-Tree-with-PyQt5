@@ -9,10 +9,8 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-
 from BezierView import BezierView
 from FractalView import FractalView
-
 
 class Ui_Form(object):
     def setupUi(self, Form):
@@ -30,7 +28,7 @@ class Ui_Form(object):
         self.tabWidget.setAutoFillBackground(False)
         self.tabWidget.setStyleSheet("")
         self.tabWidget.setObjectName("tabWidget")
-
+        
         self.tab = QtWidgets.QWidget()
         self.tab.setObjectName("tab")
         self.pushButton = QtWidgets.QPushButton(self.tab)
@@ -47,7 +45,6 @@ class Ui_Form(object):
         self.label.setLineWidth(0)
         self.label.setText("")
         self.label.setObjectName("label")
-
         self.tabWidget.addTab(self.tab, "")
 
         self.tab_2 = QtWidgets.QWidget()
@@ -55,6 +52,7 @@ class Ui_Form(object):
         self.label_3 = QtWidgets.QLabel(self.tab_2)
         self.label_3.setGeometry(QtCore.QRect(210, 620, 47, 12))
         self.label_3.setObjectName("label_3")
+
         self.horizontalSlider = QtWidgets.QSlider(self.tab_2)
         self.horizontalSlider.setGeometry(QtCore.QRect(260, 620, 160, 22))
         self.horizontalSlider.setMinimum(1)
@@ -63,7 +61,7 @@ class Ui_Form(object):
         self.horizontalSlider.setTickPosition(QtWidgets.QSlider.TicksAbove)
         self.horizontalSlider.setTickInterval(1)
         self.horizontalSlider.setObjectName("horizontalSlider")
-
+        
         # FractalView
         self.label_2 = FractalView(self.tab_2)
         self.label_2.setGeometry(QtCore.QRect(10, 10, 600, 600))
@@ -75,7 +73,6 @@ class Ui_Form(object):
         self.label_2.setLineWidth(0)
         self.label_2.setText("")
         self.label_2.setObjectName("label_2")
-
         self.tabWidget.addTab(self.tab_2, "")
 
         self.retranslateUi(Form)
@@ -84,7 +81,7 @@ class Ui_Form(object):
 
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
-        Form.setWindowTitle(_translate("Form", "Form"))
+        Form.setWindowTitle(_translate("Form", "M10909109_陳兆炫"))
         self.pushButton.setText(_translate("Form", "Redraw"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), _translate("Form", "Bezier Curve"))
         self.label_3.setText(_translate("Form", "Level:"))
