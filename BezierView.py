@@ -22,11 +22,9 @@ class BezierCurve():
             # R3: Point(3, 4) is mid point between the Point 3 and Point 4
             '''
             # step 1: calculate first mid points
-            L1 = p1
             L2 = self.__calc_mid_point(p1, p2)
             H = self.__calc_mid_point(p2, p3)
             R3 = self.__calc_mid_point(p3, p4)
-            R4 = p4
             '''
             # variables
             # L3: Point(1, 2, 3) is mid point between the Point(1, 2) and Point(2, 3)
@@ -37,11 +35,15 @@ class BezierCurve():
             L3 = self.__calc_mid_point(L2, H)
             R2 = self.__calc_mid_point(R3, H)
             L4 = self.__calc_mid_point(L3, R2)
-            R1 = L4
-            # step 3 split left and right partition
-            self.bezier(L1, L2, L3, L4, level+1)
+            '''
+            # variables
+            # p1: Point(1) is initial first point
+            # p4: Point(4) is intial last point
+            '''
+            # step 3 split left and right partition, add mid point to bezier points
+            self.bezier(p1, L2, L3, L4, level+1)
             self.bezier_points.append(L4)
-            self.bezier(R1, R2, R3, R4, level+1)
+            self.bezier(L4, R2, R3, p4, level+1)
     
     def recalc(self, p1, p2, p3, p4, level):
         self.bezier_points = list()
@@ -91,20 +93,19 @@ class BezierView(QtWidgets.QLabel):
         super(BezierView, self).paintEvent(event)
         ''' drawing '''
         painter = QPainter(self)
-        # draw bezier curve
-        if self.bezier_curve.bezier_points:
-            pen = QPen(Qt.black, 1)
-            painter.setRenderHint(QPainter.Antialiasing)
-            painter.setPen(pen)
-            painter.drawPolyline(QPolygonF(self.bezier_curve.bezier_points))
-        
+        painter.setRenderHint(QPainter.Antialiasing)
         # draw control point
         pen = QPen(Qt.black, 1)
         painter.setBrush(QBrush(Qt.white, Qt.SolidPattern))
         painter.setPen(pen)
         for point in self.control_points:
             painter.drawRect(QRect(point.x()-(self.point_size/2), point.y()-(self.point_size/2), self.point_size, self.point_size))
-
+        # draw bezier curve
+        if self.bezier_curve.bezier_points:
+            pen = QPen(Qt.black, 1)
+            painter.setPen(pen)
+            painter.drawPolyline(QPolygonF(self.bezier_curve.bezier_points))
+        
     def mousePressEvent(self, event):
         if event.button() == Qt.LeftButton:
             # print(event.pos())
