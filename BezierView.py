@@ -6,14 +6,14 @@ from PyQt5.QtGui import QPainter, QPen, QColor, QPixmap, QBrush, QPolygonF
 
 class BezierCurve():
     def __init__(self):
-        # self.control_points = list()
         self.bezier_points = list()
         self.MAX_LEVEL = 8
 
-    def __calc_mid_point(self, p1, p2):
+    def _calc_mid_point(self, p1, p2):
         return QPointF((p1.x()+p2.x())/2, (p1.y()+p2.y())/2)
     
     def bezier(self, p1, p2, p3, p4, level=1):
+        # recursive mid point approximate
         if level < self.MAX_LEVEL:
             '''
             # variables
@@ -22,9 +22,9 @@ class BezierCurve():
             # R3: Point(3, 4) is mid point between the Point 3 and Point 4
             '''
             # step 1: calculate first mid points
-            L2 = self.__calc_mid_point(p1, p2)
-            H = self.__calc_mid_point(p2, p3)
-            R3 = self.__calc_mid_point(p3, p4)
+            L2 = self._calc_mid_point(p1, p2)
+            H = self._calc_mid_point(p2, p3)
+            R3 = self._calc_mid_point(p3, p4)
             '''
             # variables
             # L3: Point(1, 2, 3) is mid point between the Point(1, 2) and Point(2, 3)
@@ -32,9 +32,9 @@ class BezierCurve():
             # L4(Q Point): Point(123, 234) is mid point between the PoinPoint(1, 2, 3) and Point(2, 3, 4)
             '''
             # step 2 calculate second mid points
-            L3 = self.__calc_mid_point(L2, H)
-            R2 = self.__calc_mid_point(R3, H)
-            L4 = self.__calc_mid_point(L3, R2)
+            L3 = self._calc_mid_point(L2, H)
+            R2 = self._calc_mid_point(R3, H)
+            L4 = self._calc_mid_point(L3, R2)
             '''
             # variables
             # p1: Point(1) is initial first point
@@ -54,7 +54,7 @@ class BezierView(QtWidgets.QLabel):
     def __init__(self, parent=None):
         super().__init__(parent)
         
-        self.canvas = QPixmap(600, 600)
+        self.canvas = QPixmap(750, 600)
         self.canvas.fill(QColor("white"))
         self.setPixmap(self.canvas)
         
