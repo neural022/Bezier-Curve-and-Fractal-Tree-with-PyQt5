@@ -69,9 +69,18 @@ class FractalView(QtWidgets.QLabel):
             diameter /= 2
             width -= 1
             # petals
-            for i in range(0, 360, 60):
+            # Because the coordinate system is reflective
+            # upper left, upper right, lower left, lower right
+            for i in range(60, 180, 60):
                 rotate_point = self.rotate(QPointF(radius, 0), i)
                 self.flower(rotate_point+target_point, diameter, width, level-1)
+                rotate_point = self.rotate(QPointF(-radius, 0), -i)
+                self.flower(rotate_point+target_point, diameter, width, level-1)
+            # up and bottom
+            rotate_point = self.rotate(QPointF(radius, 0), 300)
+            self.flower(rotate_point+target_point, diameter, width, level-1)
+            rotate_point = self.rotate(QPointF(radius, 0), -300)
+            self.flower(rotate_point+target_point, diameter, width, level-1)
 
     def branch(self, start_point, dirX, dirY, theta, width, height, level):
         ''' recursive branch '''
@@ -142,5 +151,5 @@ class FractalView(QtWidgets.QLabel):
         else:
             self.branch_level = self.max_level
         first_branch_height = self.first_item(self.pixmap().height(), self.branch_commom_ratio, self.branch_level)
-        self.branch(QPointF(float(self.rect().width()/2), float(self.rect().height())), float(0), float(-1), theta=self.theta, width=15, height=first_branch_height, level=self.branch_level)
+        self.branch(QPointF(int(self.rect().width()/2), int(self.rect().height())), float(0), float(-1), theta=self.theta, width=15, height=first_branch_height, level=self.branch_level)
         
