@@ -2,6 +2,7 @@
 
 * ### Bezier Curve and FractalTree ( PyQt5 )
     * **setup package with requirements**
+    
         **terminal commands:** 
         `pip install -r requirements.txt`
         
