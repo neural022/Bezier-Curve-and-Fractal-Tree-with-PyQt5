@@ -15,5 +15,5 @@
         
         `pyinstaller -w bezier_fractal_main.py -p Bezier_Fractal_UI.py -p BezierView.py -p FractalView.py`
   
-  ![/demo_img/](bezier_curve.png)
-  ![/demo_img/](fractal_tree.png)
+  ![/demo_img/](https://github.com/neural022/Bezier-Curve-and-Fractral-Tree-with-PyQt5/tree/main/demo_img/bezier_curve.png)
+  ![/demo_img/](https://github.com/neural022/Bezier-Curve-and-Fractral-Tree-with-PyQt5/tree/main/demo_img/fractal_tree.png)
