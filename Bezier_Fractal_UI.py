@@ -12,6 +12,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from BezierView import BezierView
 from FractalView import FractalView
 
+
 class Ui_Form(object):
     def setupUi(self, Form):
         Form.setObjectName("Form")
@@ -34,7 +35,7 @@ class Ui_Form(object):
         self.pushButton = QtWidgets.QPushButton(self.tab)
         self.pushButton.setGeometry(QtCore.QRect(360, 620, 101, 31))
         self.pushButton.setObjectName("pushButton")
-
+        
         # BezierView
         self.label = BezierView(self.tab)
         self.label.setGeometry(QtCore.QRect(10, 10, 750, 600))
@@ -82,5 +83,5 @@ class Ui_Form(object):
         Form.setWindowTitle(_translate("Form", "M10909109_陳兆炫"))
         self.pushButton.setText(_translate("Form", "Redraw"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), _translate("Form", "Bezier Curve"))
-        self.label_3.setText(_translate("Form", "Level: 1"))
-        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), _translate("Form", "Fractral Tree"))
+        self.label_3.setText(_translate("Form", "Level:"))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), _translate("Form", "Fractal Tree"))

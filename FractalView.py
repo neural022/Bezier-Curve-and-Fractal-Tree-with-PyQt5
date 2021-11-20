@@ -69,7 +69,7 @@ class FractalView(QtWidgets.QLabel):
             diameter /= 2
             width -= 1
             # petals
-            for i in range(0, 360, 45):
+            for i in range(0, 360, 60):
                 rotate_point = self.rotate(QPointF(radius, 0), i)
                 self.flower(rotate_point+target_point, diameter, width, level-1)
 
@@ -90,7 +90,7 @@ class FractalView(QtWidgets.QLabel):
             # print(start_point.x(), start_point.y(), target_x, target_y)
             # print('branch level:', level)
             self.tree_branches.append(Branch(start_point, target_point, pen_style))
-            ''' Flower '''
+            ''' Flower process '''
             if self.max_level > 7 and level == 1:
                 self.flower(target_point, diameter=30, width=4, level=self.flower_level)
             ''' branch procces cont '''
@@ -132,7 +132,6 @@ class FractalView(QtWidgets.QLabel):
         self.max_level = self.horizental_slider.value()
         self.level_label.setText("Level %s :" % str(self.max_level))
         self.tree_branches = list()
-        self.tree_leaf = list()
         self.tree_flower = list()
         # flower
         if self.max_level > 7:
