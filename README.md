@@ -14,3 +14,6 @@
         **terminal commands:** 
         
         `pyinstaller -w bezier_fractal_main.py -p Bezier_Fractal_UI.py -p BezierView.py -p FractalView.py`
+  
+  ![/demo_img/](bezier_curve.png)
+  ![/demo_img/](fractal_tree.png)
