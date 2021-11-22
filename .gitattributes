@@ -1,3 +1,2 @@
-src/main/resources/static/demo_img linguist-vendored
-src/main/resources/static/executable_file linguist-vendored
+* linguist-vendored
 *.py linguist-vendored=false
