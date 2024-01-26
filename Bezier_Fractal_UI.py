@@ -80,7 +80,7 @@ class Ui_Form(object):
 
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
-        Form.setWindowTitle(_translate("Form", "M10909109_陳兆炫"))
+        Form.setWindowTitle(_translate("Form", "Multimedia Information Systems Project"))
         self.pushButton.setText(_translate("Form", "Redraw"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), _translate("Form", "Bezier Curve"))
         self.label_3.setText(_translate("Form", "Level:"))

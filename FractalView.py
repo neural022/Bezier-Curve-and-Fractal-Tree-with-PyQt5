@@ -1,4 +1,7 @@
-
+# -*- coding: utf-8 -*-
+"""
+@author: george chen(neural022)
+"""
 from PyQt5 import QtWidgets
 import PyQt5
 from PyQt5.QtCore import QPointF, QLineF

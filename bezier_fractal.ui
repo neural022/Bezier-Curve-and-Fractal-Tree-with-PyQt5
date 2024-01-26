@@ -29,7 +29,7 @@
    </font>
   </property>
   <property name="windowTitle">
-   <string>M10909109_陳兆炫</string>
+   <string>Multimedia Information Systems Project</string>
   </property>
   <widget class="QTabWidget" name="tabWidget">
    <property name="geometry">

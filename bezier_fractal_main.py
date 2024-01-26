@@ -1,3 +1,7 @@
+# -*- coding: utf-8 -*-
+"""
+@author: george chen(neural022)
+"""
 import sys
 from PyQt5 import QtWidgets
 from Bezier_Fractal_UI import Ui_Form
