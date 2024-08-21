@@ -1,4 +1,4 @@
-# Bezier-Curve-and-Fractal-Tree-with-PyQt5
+# Bezier-Curve-and-Fractal-Tree
 
 * ### Bezier Curve and Fractal Tree ( PyQt5 )
     * **setup package with requirements**
